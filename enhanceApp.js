@@ -4,5 +4,5 @@ export default ({
     router,
     siteData
 }) => {
-    console.log(siteData)
+  
 }

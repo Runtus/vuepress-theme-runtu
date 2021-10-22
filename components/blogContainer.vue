@@ -1,16 +1,25 @@
 <template>
 <!-- TODO 外层blog的title，description展示 -->
-    <div class="runtu-blogContainer">
+    <div class="runtu-blogContainer" @click="blogClick(blogAttr.regularPath)">
         {{blogAttr.title}}
+        {{blogAttr.frontmatter}}
     </div>
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, getCurrentInstance } from '@vue/composition-api'
 
 export default defineComponent({
     setup(props, ctx) {
-        // console.log()
+        const instance = getCurrentInstance().proxy;
+
+        const blogClick = (key) => {
+            instance.$router.push({ path: key })
+        }
+
+        return {
+            blogClick
+        }
     },
     /**
      * {
@@ -22,6 +31,8 @@ export default defineComponent({
      */
     props: ['blogAttr']
 })
+
+
 </script>
 
 <style lang="stylus" scoped>
@@ -29,5 +40,6 @@ export default defineComponent({
     width: 300px;
     height: 150px;
     border: 1px solid black;
+    cursor: pointer;
 }
 </style>
