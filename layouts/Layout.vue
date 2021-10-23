@@ -14,7 +14,7 @@ export default defineComponent({
     // TODO 注册组件
     components: { Page, Header },
     setup(props, ctx) {
-        
+
     }
 
 })
@@ -24,9 +24,16 @@ export default defineComponent({
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.runtu-page {
-    margin-top: 80px;
+.theme-container {
+    position: relative;
+    width: 100%;
+    .runtu-page {
+        // 与Header-bar高度相同
+        margin-top: 60px;
+    } 
 }
+
 </style>

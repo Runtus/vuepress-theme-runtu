@@ -9,7 +9,7 @@
             </div>
         </div>
         <section class="runtu-content" v-else>
-            <Content />
+            <Content class="mdContent" />
         </section>
     </div>
 </template>
@@ -24,7 +24,6 @@ export default defineComponent({
     components: {Background, Blog},
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
-        console.log(instance)
         // TODO computed返回的值都是Ref包装后的响应值
         const blogs = computed(() => {
             const pages = instance.$site.pages
@@ -63,5 +62,10 @@ export default defineComponent({
             margin-top: 12px;
         }
     }
+    
+    .runtu-content {
+        width: 60%;
+    }
 }
+
 </style>

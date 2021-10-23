@@ -14,6 +14,9 @@ module.exports = (options, ctx) => {
                         layout: 'Tags'
                     }
                 ]
+            }],
+            ['@vuepress/active-header-links', {
+                headerAnchorSelector: '.header-anchor'
             }]
         ]
     }

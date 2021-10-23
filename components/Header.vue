@@ -1,32 +1,47 @@
 <template>
-    <header class="runtu-header">
+    <header class="runtu-header" ref="headerRef">
         <div class="runtu-intro">
             <img src="https://lao-lan-go.oss-cn-beijing.aliyuncs.com/vuepress/avatar.png" alt="avatar">
             <!-- TODO 博客名称配置 -->
             <span>Runtus</span>
         </div>
         <!-- TODO 选项配置，不过这个可以放在后面自定义 -->
+        <div class="runtu-navLinksBox">
+            <NavLinks />
+        </div>
     </header>
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, onMounted, ref } from '@vue/composition-api'
+import { eventScrollInject } from '@theme/helpers/topbarScroll'
+import NavLinks from '@theme/components/NavLinks'
 
 export default defineComponent({
+    components: {NavLinks},
     setup(props, ctx) {
-        
+        const headerRef = ref(null)
+        onMounted(() => {
+            console.log(headerRef.value)
+            eventScrollInject(headerRef.value, 300, 300)
+        })
+        return {
+            headerRef
+        }
     },
 })
 </script>
 
 <style lang="stylus" scoped>
 .runtu-header {
+    transition: top 0.3s ;
     position: fixed;
     width: 100%;
     top: 0;
     background-color: white;
     display: flex;
-    height: 80px;
+    justify-content: space-between;
+    height: 60px;
     align-content: center;
     padding-left: 24px;
 
@@ -36,9 +51,9 @@ export default defineComponent({
         align-items: center;
 
         img {
-            width: 50px;
-            height: 50px;
-            border-radius: 25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
         }
 
         span {
@@ -46,5 +61,12 @@ export default defineComponent({
             font-size: 20px;
         }
     }
+
+    .runtu-navLinksBox {
+        display: flex;
+        align-items: center;
+        margin-right: 36px;
+    }
 }
+
 </style>
