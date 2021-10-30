@@ -34,6 +34,7 @@ export default defineComponent({
             instance.$router.push({ path: key })
         }
 
+
         const formatDate = computed(() => YMDFormat(props.blogAttr.frontmatter.date))
 
         return {

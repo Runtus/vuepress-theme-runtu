@@ -2,7 +2,7 @@
  * 
  * @param {HTMLElement} dom 
  */
-export const eventScrollInject = (dom, delay) => {
+ export const eventScrollInject = (dom, delay) => {
     let lastTop = 0;
     window.onscroll = throttle(() => {
         const scrollTop = document.documentElement.scrollTop;

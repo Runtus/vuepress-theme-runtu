@@ -9,15 +9,16 @@
             </div>
         </div>
         <section class="runtu-content" v-else>
-            <Content class="mdContent" />
+            <Content class="theme-runtu-content" />
         </section>
     </div>
 </template>
 
 <script>
-import { computed, defineComponent, getCurrentInstance } from '@vue/composition-api'
+import { computed, defineComponent, getCurrentInstance, onMounted } from '@vue/composition-api'
 import Background from '@theme/components/background.vue'
 import Blog from '@theme/components/blogContainer.vue'
+import '@theme/style/content.styl'
 
 
 export default defineComponent({
@@ -29,6 +30,7 @@ export default defineComponent({
             const pages = instance.$site.pages
             return pages.filter(item => item.title)
         })
+
         
         return {
             blogs
@@ -53,7 +55,7 @@ export default defineComponent({
     .runtu-blogs {
         width: 60%;
         display: flex;
-        justify-content: left;
+        justify-content: center;
         flex-wrap: wrap;
         border: 1px solid black;
 

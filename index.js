@@ -12,13 +12,29 @@ module.exports = (options, ctx) => {
                         keys: ['tags'],
                         path: '/tags/',
                         layout: 'Tags'
+                    },
+                    {
+                        id: 'about',
+                        keys: ['about'],
+                        path: '/about',
+                        layout: 'About'
                     }
                 ]
             }],
             ['@vuepress/active-header-links', {
                 headerAnchorSelector: '.header-anchor'
+            }],
+            ['@vuepress/medium-zoom', {
+                selector: '.theme-runtu-content :not(a) > img',
+                options: {
+                    margin: 16
+                }
             }]
-        ]
+        ],
+        extendMarkdown: md => {
+            md.set({ breaks: true, linkify: true, typographer: true })
+        },
+    
     }
 
 }

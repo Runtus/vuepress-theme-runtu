@@ -34,6 +34,7 @@ export default defineComponent({
 
 <style lang="stylus" scoped>
 .runtu-header {
+    z-index: 100;
     transition: top 0.3s ;
     position: fixed;
     width: 100%;

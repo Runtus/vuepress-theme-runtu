@@ -11,6 +11,7 @@ import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
     setup() {
+        // TODO mock links
         const mockLinks = [
             {
                 name: '主页'
