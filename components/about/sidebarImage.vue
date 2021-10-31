@@ -1,7 +1,7 @@
 <template>
     <div id="sidebar" :style="{height: `${imageHeight}px`}">
         <!-- TODO 由About配置获取 -->
-        <img :style="{height: `${imageHeight * 1.1}px`}" data-depth="0.5" src="https://lao-lan-go.oss-cn-beijing.aliyuncs.com/vuepress/pixiv32.png" alt="sidebar">
+        <img :style="{height: `${imageHeight * 1.1}px`}" data-depth="0.5" src="https://lao-lan-go.oss-cn-beijing.aliyuncs.com/vuepress/pixiv12.PNG" alt="sidebar">
     </div>
 </template>
 
@@ -22,7 +22,7 @@ export default defineComponent({
             });
         })
 
-        const imageHeight = computed(() => window.innerHeight)
+        const imageHeight = computed(() => window.innerHeight - 60)
 
         return {
             imageHeight
@@ -36,9 +36,10 @@ export default defineComponent({
 #sidebar {
     width: 50%;
     overflow: hidden; 
+
     img {
         display: block;
-        width: 110%;
+        height: 100%;
         margin-left: -50px;
         margin-top: -50px;
     }

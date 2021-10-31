@@ -3,6 +3,11 @@
         <Header />
         <div class="runtu-about-body">
             <SideImage />
+            <div class="runtu-about-content">
+                <section>
+                    <Content />
+                </section>
+            </div>
         </div>
     </div>
 </template>

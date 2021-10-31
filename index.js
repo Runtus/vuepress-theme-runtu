@@ -14,10 +14,10 @@ module.exports = (options, ctx) => {
                         layout: 'Tags'
                     },
                     {
-                        id: 'about',
-                        keys: ['about'],
-                        path: '/about',
-                        layout: 'About'
+                        id: 'blogs',
+                        keys: ['blogs'],
+                        path: '/blogs',
+                        layout: 'Layout'
                     }
                 ]
             }],

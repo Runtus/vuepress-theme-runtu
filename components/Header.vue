@@ -1,7 +1,7 @@
 <template>
     <header class="runtu-header" ref="headerRef">
         <div class="runtu-intro">
-            <img src="https://lao-lan-go.oss-cn-beijing.aliyuncs.com/vuepress/avatar.png" alt="avatar">
+            <img :src="avatar" alt="avatar">
             <!-- TODO 博客名称配置 -->
             <span>Runtus</span>
         </div>
@@ -13,20 +13,27 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from '@vue/composition-api'
+import { defineComponent, onMounted, ref, getCurrentInstance, computed } from '@vue/composition-api'
 import { eventScrollInject } from '@theme/helpers/topbarScroll'
 import NavLinks from '@theme/components/NavLinks'
 
 export default defineComponent({
     components: {NavLinks},
     setup(props, ctx) {
+        const instance = getCurrentInstance().proxy
         const headerRef = ref(null)
         onMounted(() => {
             console.log(headerRef.value)
             eventScrollInject(headerRef.value, 300, 300)
         })
+        console.log(instance.$themeConfig)
+
+        const avatar = computed(() => {
+            const href = instance.$themeConfig.avatar
+            return href
+        })
         return {
-            headerRef
+            headerRef, avatar
         }
     },
 })

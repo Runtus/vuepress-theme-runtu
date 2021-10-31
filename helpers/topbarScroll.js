@@ -4,6 +4,8 @@
  */
  export const eventScrollInject = (dom, delay) => {
     let lastTop = 0;
+    const DOMHeight = dom.clientHeight;
+    console.log(DOMHeight)
     window.onscroll = throttle(() => {
         const scrollTop = document.documentElement.scrollTop;
         if(lastTop > scrollTop){
@@ -11,7 +13,7 @@
             dom.style.top = '0';
         } else {
             // 下滑
-            dom.style.top = '-60px'
+            dom.style.top = `-${DOMHeight}px`
         }
         lastTop = scrollTop
     }, delay)

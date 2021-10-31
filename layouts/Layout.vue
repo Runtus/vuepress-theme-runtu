@@ -27,6 +27,12 @@ export default defineComponent({
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none
+    outline-color: none
+    color: #000
+}
+
 .theme-container {
     position: relative;
     width: 100%;
