@@ -1,4 +1,4 @@
-import { addHeaderScript } from '@theme/helpers/utils'
+import { addHeaderScript, addHeaderLink } from '@theme/helpers/utils'
 
 export default ({
     Vue,
@@ -7,4 +7,5 @@ export default ({
     siteData
 }) => {
     addHeaderScript('https://lib.baomitu.com/parallax/3.1.0/parallax.min.js')
+    addHeaderLink('https://lib.baomitu.com/font-awesome/5.15.4/css/all.min.css')
 }

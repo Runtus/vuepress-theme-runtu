@@ -13,11 +13,21 @@ module.exports = (options, ctx) => {
                         path: '/tags/',
                         layout: 'Tags'
                     },
+                    // {
+                    //     id: 'blogs',
+                    //     keys: ['blogs'],
+                    //     path: '/blogs/:pagenumber',
+                    //     layout: 'Layout'
+                    // }
+                ],
+                directories: [
                     {
                         id: 'blogs',
-                        keys: ['blogs'],
-                        path: '/blogs',
-                        layout: 'Layout'
+                        dirname: 'blogs',
+                        path: '/blogs/',
+                        pagination: {
+                            lengthPerPage: 4
+                        }
                     }
                 ]
             }],
