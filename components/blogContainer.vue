@@ -1,7 +1,7 @@
 <template>
     <div class="runtu-blogContainer">
         <span class="runtu-title" >
-            <span @click="blogClick(blogAttr.regularPath)">{{blogAttr.title}}</span>
+            <span @click="blogClick(blogAttr.path)">{{blogAttr.title}}</span>
         </span>
         <section class="runtu-desc">
             {{blogAttr.frontmatter.description}}
@@ -11,7 +11,7 @@
                 <img :src="date_icon" alt="icon-date"/>
             {{formatDate}}
             </span>
-            <span class="runtu-readmore" @click="blogClick(blogAttr.regularPath)">
+            <span class="runtu-readmore" @click="blogClick(blogAttr.path)">
                 Read more
                 <img :src="right_svg" alt="icon-right">
             </span>
@@ -33,7 +33,6 @@ export default defineComponent({
         const blogClick = (key) => {
             instance.$router.push({ path: key })
         }
-
 
         const formatDate = computed(() => YMDFormat(props.blogAttr.frontmatter.date))
 
@@ -59,16 +58,22 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" scoped>
-* {
-    font-family: Optima-Regular,Optima,-apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial;
-}
 
 .runtu-blogContainer {
-    box-shadow: 1px 1px 5px #8c8c8c;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #bfbfbf;
     width: 600px;
     display: flex;
     flex-direction: column;
-    padding: 12px 16px;
+    padding: 24px 32px;
+    transition: transform 0.4s, box-shadow 0.4s;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px)
+        box-shadow: 1px 1px 15px #bfbfbf;
+
+    }
 
     .runtu-title {
         font-weight: 600;

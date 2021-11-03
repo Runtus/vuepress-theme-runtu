@@ -30,10 +30,14 @@ export default defineComponent({
         padding-right: 4px;
         width: 60px;
         height: 30px;
-        border: 1px solid black;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        color: #8c8c8c;
+        
+        i {
+            color: #d9d9d9;
+        }
     }
 }
 </style>

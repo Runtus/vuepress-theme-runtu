@@ -1,6 +1,6 @@
 <template>
     <div class="runtu-page">
-        <div class="runtu-about" v-if="this.$page.regularPath === '/'">
+        <div class="runtu-about" v-if="this.$page.path === '/'">
             <SideImage />
             <div class="runtu-about-content">
                 <section class="runtu-about-content">
@@ -8,7 +8,7 @@
                 </section>
             </div>
         </div>
-        <div class="runtu-blogs" v-else-if="new RegExp('/blog*').test(this.$page.regularPath)">
+        <div class="runtu-blogs" v-else-if="new RegExp('/blog*').test(this.$page.path)">
             <div class="runtu-pageHeader">
                 <Background />
             </div>
@@ -18,8 +18,19 @@
                 </div>
             </div>
             <div class="runtu-bottom">
-                <PageButton :dire="'left'" v-if="preLink" :onClickTurn="paginTurning(preLink)" />
-                <PageButton :dire="'right'" v-if="nextLink" :onClickTurn="paginTurning(nextLink)" />
+                <PageButton 
+                class="runtu-pre"
+                :dire="'left'" 
+                :onClickTurn="paginTurning(preLink)" 
+                v-show="preLink" 
+                key="pre"/>
+                <PageButton 
+                class="runtu-next"
+                :dire="'right'" 
+                :onClickTurn="paginTurning(nextLink)" 
+                v-show="nextLink"
+                key="next"
+                />
             </div>
         </div>
         <section class="runtu-content" v-else>
@@ -43,11 +54,17 @@ export default defineComponent({
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
         // TODO computed返回的值都是Ref包装后的响应值\
+        let blogs, nextLink, preLink
         console.log(instance)
 
-        const blogs = computed(() => instance.$pagination.pages)
-        const nextLink = computed(() => instance.$pagination.nextLink)
-        const preLink = computed(() => instance.$pagination.prevLink)
+        // 非博客展示页 instance.$pagination 为 null
+        try {
+            blogs = computed(() => instance.$pagination.pages)
+            nextLink = computed(() => instance.$pagination.nextLink)
+            preLink = computed(() => instance.$pagination.prevLink)
+        } catch(err) {
+            
+        }
 
         // 为了让子组件调用函数时能够获取link的值，需要返回一个函数，类似柯里化
         const paginTurning = (link) => () => {
@@ -75,6 +92,7 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px;
 
     .runtu-about {
         width: 100%;
@@ -100,13 +118,25 @@ export default defineComponent({
 
         .runtu-blogs-box {
             .runtu-blog-m {
-                margin-left: 12px;
-                margin-top: 20px;
+                margin-top: 60px;
             }
         }
 
-        .runtu-bottom {
-            display: flex;
+        .runtu-bottom { 
+            margin-top: 24px;
+            position: relative;
+            width: 600px;
+            height: 30px;
+
+            .runtu-pre {
+                position: absolute;
+                left: 0;
+            }
+            
+            .runtu-next {
+                position: absolute;
+                right: 0;
+            }
         }
 
         
