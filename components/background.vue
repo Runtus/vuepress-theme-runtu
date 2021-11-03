@@ -1,7 +1,7 @@
 <template>
     <div class="runtu-background" id="runtu-background">
         <!-- TODO mock-data 之后换成自定义图片 -->
-        <img data-depth="0.5" src="https://lao-lan-go.oss-cn-beijing.aliyuncs.com/vuepress/backg.png" alt="背景图">
+        <img data-depth="0.5" :src="imageUrl" alt="背景图">
     </div>
 </template>
 
@@ -11,6 +11,7 @@ import { defineComponent } from 'vue-demi'
 export default defineComponent({
     name: 'Background',
     setup(props, ctx) {
+        console.log(props)
         // 渲染图片
         setTimeout(() => {
             const imageDom = document.getElementById('runtu-background')
@@ -21,6 +22,7 @@ export default defineComponent({
             })
         })
     },
+    props: ['imageUrl']
 })
 </script>
 
@@ -34,7 +36,7 @@ export default defineComponent({
         width: 110%;
         height: 100%;
         margin-left: -70px;
-        margin-top: -70px;
+        margin-top: -200px;
     }
 }
 </style>
