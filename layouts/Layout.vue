@@ -25,6 +25,7 @@ export default defineComponent({
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Optima-Regular,Optima,-apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial;
 }
 
 a {

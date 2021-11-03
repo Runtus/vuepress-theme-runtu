@@ -13,18 +13,19 @@ module.exports = (options, ctx) => {
                         path: '/tags/',
                         layout: 'Tags'
                     },
-                    // {
-                    //     id: 'blogs',
-                    //     keys: ['blogs'],
-                    //     path: '/blogs/:pagenumber',
-                    //     layout: 'Layout'
-                    // }
+                    {
+                        id: 'blogs',
+                        keys: ['blogs'],
+                        path: '/blogs/',
+                        layout: 'Layout'
+                    }
                 ],
                 directories: [
                     {
                         id: 'blogs',
                         dirname: 'blogs',
                         path: '/blogs/',
+                        // page分页
                         pagination: {
                             lengthPerPage: 4
                         }
