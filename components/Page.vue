@@ -10,7 +10,7 @@
         </div>
         <div class="runtu-blogs" v-else-if="new RegExp('/blog*').test(this.$page.path)">
             <div class="runtu-pageHeader">
-                <Background />
+                <Background :imageUrl='imageUrl' />
             </div>
             <div class="runtu-blogs-box">
                 <div v-for="bItem in blogs" v-bind:key="bItem.key" class="runtu-blog-m">
@@ -71,9 +71,10 @@ export default defineComponent({
             instance.$router.push({ path: link })
         }
 
+        const imageUrl = computed(() => instance.$themeConfig.indexBackground)
         
         return {
-            blogs, nextLink, preLink, paginTurning
+            blogs, nextLink, preLink, paginTurning, imageUrl
         }
 
     },
