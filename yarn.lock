@@ -61,6 +61,13 @@
   dependencies:
     vssue "^1.4.8"
 
+"@vue/composition-api@^1.3.3":
+  version "1.3.3"
+  resolved "https://registry.npmmirror.com/@vue/composition-api/download/@vue/composition-api-1.3.3.tgz#a782f2d40e41d4cbb6b4550692c7e01d2182d457"
+  integrity sha1-p4Ly1A5B1Mu2tFUGksfgHSGC1Fc=
+  dependencies:
+    tslib "^2.3.1"
+
 "@vuepress/plugin-active-header-links@^1.8.2":
   version "1.8.2"
   resolved "https://registry.nlark.com/@vuepress/plugin-active-header-links/download/@vuepress/plugin-active-header-links-1.8.2.tgz#0cb9b29c826dd97d35357a9b09c962ef782cb793"
@@ -808,6 +815,11 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.nlark.com/lodash.sortby/download/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npm.taobao.org/lodash.throttle/download/lodash.throttle-4.1.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash.throttle%2Fdownload%2Flodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
 lodash.trimend@^4.5.1:
   version "4.5.1"
   resolved "https://registry.npm.taobao.org/lodash.trimend/download/lodash.trimend-4.5.1.tgz#12804437286b98cad8996b79414e11300114082f"
@@ -1252,6 +1264,11 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
+tslib@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1628722580350&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
+
 typescript@^4.4.4:
   version "4.4.4"
   resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz?cache=0&sync_timestamp=1635235452925&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
@@ -1378,6 +1395,13 @@ vuepress-plugin-mailchimp@^1.4.1:
   dependencies:
     jsonp "^0.2.1"
     query-string "^6.9.0"
+
+vuepress-plugin-right-anchor@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.npmmirror.com/vuepress-plugin-right-anchor/download/vuepress-plugin-right-anchor-0.5.5.tgz#f5b8b12e8c911e51a3203d6e40f5d3b0d3213d10"
+  integrity sha1-9bixLoyRHlGjID1uQPXTsNMhPRA=
+  dependencies:
+    lodash.throttle "^4.1.1"
 
 vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"

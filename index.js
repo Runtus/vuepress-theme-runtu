@@ -4,7 +4,9 @@ module.exports = (options, ctx) => {
 
     return {
         plugins: [
-            '@vuepress/back-to-top',
+            ['vuepress-plugin-right-anchor',{
+                showDepth: 1
+            }],
             ['@vuepress/plugin-blog', {
                 frontmatters: [
                     {
@@ -12,13 +14,7 @@ module.exports = (options, ctx) => {
                         keys: ['tags'],
                         path: '/tags/',
                         layout: 'Tags'
-                    },
-                    // {
-                    //     id: 'blogs',
-                    //     keys: ['blogs'],
-                    //     path: '/blogs/',
-                    //     layout: 'Layout'
-                    // }
+                    }
                 ],
                 directories: [
                     {

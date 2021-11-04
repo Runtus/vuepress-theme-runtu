@@ -33,24 +33,23 @@
                 />
             </div>
         </div>
-        <section class="runtu-content" v-else>
-            <Content class="theme-runtu-content" />
-        </section>
+        <BlogContent v-else />
     </div>
 </template>
 
 <script>
 import { computed, defineComponent, getCurrentInstance} from '@vue/composition-api'
 import Background from '@theme/components/background.vue'
-import Blog from '@theme/components/blogContainer.vue'
+import Blog from '@theme/components/BlogContainer.vue'
 import Header from '@theme/components/Header'
 import SideImage from '@theme/components/about/sidebarImage'
 import PageButton from '@theme/components/PageButton'
+import BlogContent from '@theme/components/BlogContent'
 import '@theme/style/content.styl'
 
 
 export default defineComponent({
-    components: {Background, Blog, Header, SideImage, PageButton},
+    components: {Background, Blog, Header, SideImage, PageButton, BlogContent},
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
         // TODO computed返回的值都是Ref包装后的响应值\
