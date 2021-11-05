@@ -20,13 +20,13 @@
 }
 
 // 监听window变化
-export const onWindowSizeChange = (fn) => {
+export const onWindowSizeChange = (fn, delay) => {
     window.onresize = throttle(() => {
         fn({
             width: window.innerWidth,
             height: window.innerHeight
         })
-    }, 300)
+    }, delay || 300)
 }
 
 function throttle(fn, delay){
