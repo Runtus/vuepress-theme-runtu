@@ -1,6 +1,6 @@
 <template>
     <header class="runtu-header" ref="headerRef">
-        <div class="runtu-intro">
+        <div class="runtu-intro" @click="turnHome()">
             <img :src="avatar" alt="avatar">
             <!-- TODO 博客名称配置 -->
             <span>Runtus</span>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, getCurrentInstance, computed } from '@vue/composition-api'
+import { defineComponent, onMounted, ref, getCurrentInstance, computed } from 'vue-demi'
 import { eventScrollInject } from '@theme/helpers/topbarScroll'
 import NavLinks from '@theme/components/NavLinks'
 
@@ -32,8 +32,17 @@ export default defineComponent({
             const href = instance.$themeConfig.avatar
             return href
         })
+
+        const turnHome = () => {
+            console.log('123')
+            // 回到主页
+            instance.$router.push({
+                path: '/blogs/'
+            })            
+        }
+
         return {
-            headerRef, avatar
+            headerRef, avatar, turnHome
         }
     },
 })
@@ -54,7 +63,7 @@ export default defineComponent({
     padding-left: 24px;
 
     .runtu-intro {
-
+        cursor: pointer;
         display: flex;
         align-items: center;
 

@@ -4,8 +4,9 @@ module.exports = (options, ctx) => {
 
     return {
         plugins: [
+            ['@vuepress/back-to-top'],
             ['vuepress-plugin-right-anchor',{
-                showDepth: 1
+                showDepth: 1000
             }],
             ['@vuepress/plugin-blog', {
                 frontmatters: [

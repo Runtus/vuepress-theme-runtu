@@ -1,7 +1,7 @@
 <template>
     <div class="runtu-navLinks">
-        <div class="runtu-hrefbox" v-for="item in links" :key="item.name">
-            <a :href="item.route" >{{item.name}}</a>
+        <div class="runtu-hrefbox" v-for="item in links" :key="item.name" @click="turn(item.route)">
+            <span>{{item.name}}</span>
             <div />
         </div>
     </div>
@@ -39,9 +39,15 @@ export default defineComponent({
             return temp
         })
 
+        const turn = (link) => {
+            instance.$router.push({
+                path: link
+            })
+        }
+
 
         return {
-            links
+            links, turn
         }
     },
 })
@@ -51,12 +57,13 @@ export default defineComponent({
 <style lang="stylus" scoped>
 
 .runtu-navLinks {
+    cursor: pointer;
     display: flex;
     width: 200px;
     justify-content: space-around;
 
     .runtu-hrefbox {
-        a {
+        span {
             font-weight: 500;
             color: #2c3e50; 
         }
