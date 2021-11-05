@@ -11,7 +11,6 @@ import { defineComponent } from 'vue-demi'
 export default defineComponent({
     name: 'Background',
     setup(props, ctx) {
-        console.log(props)
         // 渲染图片
         setTimeout(() => {
             const imageDom = document.getElementById('runtu-background')

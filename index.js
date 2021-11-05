@@ -13,8 +13,14 @@ module.exports = (options, ctx) => {
                     {
                         id: 'tags',
                         keys: ['tags'],
-                        path: '/tags/',
-                        layout: 'Tags'
+                        path: '/archive',
+                        layout: 'HalfL'
+                    },
+                    {
+                        id: 'friend',
+                        keys: ['friend'],
+                        path: '/friend',
+                        layout: 'HalfL'
                     }
                 ],
                 directories: [
