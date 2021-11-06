@@ -14,7 +14,7 @@
 
 <script>
 import { defineComponent, onMounted, ref, getCurrentInstance, computed } from 'vue-demi'
-import { eventScrollInject } from '@theme/helpers/topbarScroll'
+import { eventScrollInject } from '@theme/helpers/vueUtils'
 import NavLinks from '@theme/components/NavLinks'
 
 export default defineComponent({
@@ -23,10 +23,8 @@ export default defineComponent({
         const instance = getCurrentInstance().proxy
         const headerRef = ref(null)
         onMounted(() => {
-            console.log(headerRef.value)
             eventScrollInject(headerRef.value, 300, 300)
         })
-        console.log(instance.$themeConfig)
 
         const avatar = computed(() => {
             const href = instance.$themeConfig.avatar
@@ -34,7 +32,6 @@ export default defineComponent({
         })
 
         const turnHome = () => {
-            console.log('123')
             // 回到主页
             instance.$router.push({
                 path: '/blogs/'

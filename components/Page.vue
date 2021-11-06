@@ -1,7 +1,7 @@
 <template>
     <div class="runtu-page">
         <div class="runtu-about" v-if="this.$page.path === '/'">
-            <SideImage />
+            <SideImage :imageUrl="imageSidebar" />
             <div class="runtu-about-content">
                 <section class="runtu-about-content">
                     <Content class="theme-runtu-content" />
@@ -42,7 +42,7 @@ import { computed, defineComponent, getCurrentInstance} from '@vue/composition-a
 import Background from '@theme/components/background.vue'
 import Blog from '@theme/components/BlogContainer.vue'
 import Header from '@theme/components/Header'
-import SideImage from '@theme/components/about/sidebarImage'
+import SideImage from '@theme/components/SidebarImage'
 import PageButton from '@theme/components/PageButton'
 import BlogContent from '@theme/components/BlogContent'
 import '@theme/style/content.styl'
@@ -71,9 +71,13 @@ export default defineComponent({
         }
 
         const imageUrl = computed(() => instance.$themeConfig.indexBackground)
+
+        // TODO 这里只是暂时这样放，后期会移植到HalfL模版里
+        const imageSidebar = computed(() => instance.$frontmatter ? instance.$frontmatter.imageUrl : '')
+
         
         return {
-            blogs, nextLink, preLink, paginTurning, imageUrl
+            blogs, nextLink, preLink, paginTurning, imageUrl, imageSidebar
         }
 
     },
@@ -92,7 +96,6 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
 
     .runtu-about {
         width: 100%;
@@ -109,6 +112,7 @@ export default defineComponent({
     }
 
     .runtu-blogs {
+        padding-bottom: 20px;
         width: 100%;
         display: flex;
         flex-direction: column;

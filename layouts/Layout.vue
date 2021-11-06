@@ -38,8 +38,7 @@ a {
     position: relative;
     width: 100%;
     .runtu-page {
-        // 与Header-bar高度相同
-        margin-top: 60px;
+
     } 
 }
 

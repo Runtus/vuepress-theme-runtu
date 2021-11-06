@@ -6,15 +6,13 @@
 </template>
 
 <script>
-import { computed, defineComponent, onMounted, getCurrentInstance } from 'vue-demi'
+import { computed, defineComponent, onMounted, getCurrentInstance, ref } from 'vue-demi'
+import { onWindowSizeChange } from '@theme/helpers/vueUtils'
 
 export default defineComponent({
     setup() {
         const instance = getCurrentInstance().proxy
 
-
-
-        console.log('about',instance)
         onMounted(() => {
             setTimeout(() => {
                 const imageDom = document.getElementById('sidebar')
@@ -25,14 +23,20 @@ export default defineComponent({
                 })
             });
         })
+        
+        const imageHeight = ref(window.innerHeight)
+        onWindowSizeChange((res) => {
+            console.log(res.height)
+            imageHeight.value = res.height
+        })
+        
 
-        const imageHeight = computed(() => window.innerHeight - 60)
-        const imageUrl = computed(() => instance.$page.frontmatter.imageUrl)
 
         return {
-            imageHeight, imageUrl
+            imageHeight
         }
     },
+    props: ['imageUrl']
 })
 </script>
 

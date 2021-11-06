@@ -42,7 +42,7 @@ export default defineComponent({
         const turn = (link) => {
             instance.$router.push({
                 path: link
-            })
+            }).catch(err => {})
         }
 
 

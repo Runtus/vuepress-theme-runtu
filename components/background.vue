@@ -11,7 +11,6 @@ import { defineComponent } from 'vue-demi'
 export default defineComponent({
     name: 'Background',
     setup(props, ctx) {
-        console.log(props)
         // 渲染图片
         setTimeout(() => {
             const imageDom = document.getElementById('runtu-background')
@@ -29,7 +28,7 @@ export default defineComponent({
 <style scoped lang="stylus">
 .runtu-background {
     width: 100%;
-    max-height: 400px;
+    max-height: 500px;
     overflow: hidden;
     
     img {
