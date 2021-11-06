@@ -29,7 +29,6 @@ export default defineComponent({
 
 <style lang="stylus" scoped>
 .runtu-halfpage {
-    margin-top: 60px;
     width: 100%;
     display: flex;
     flex-direction: row;

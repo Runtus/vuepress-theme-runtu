@@ -28,7 +28,7 @@ export default defineComponent({
 <style scoped lang="stylus">
 .runtu-background {
     width: 100%;
-    max-height: 400px;
+    max-height: 500px;
     overflow: hidden;
     
     img {

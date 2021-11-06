@@ -96,7 +96,6 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
 
     .runtu-about {
         width: 100%;
@@ -113,6 +112,7 @@ export default defineComponent({
     }
 
     .runtu-blogs {
+        padding-bottom: 20px;
         width: 100%;
         display: flex;
         flex-direction: column;

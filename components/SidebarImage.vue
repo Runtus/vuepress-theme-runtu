@@ -26,7 +26,8 @@ export default defineComponent({
         
         const imageHeight = ref(window.innerHeight)
         onWindowSizeChange((res) => {
-            imageHeight.value = res.height - 60
+            console.log(res.height)
+            imageHeight.value = res.height
         })
         
 

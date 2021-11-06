@@ -4,8 +4,9 @@
            {{order.name}}
        </span>
        <div class="runtu-render">
-           <div v-for="item in order.render" :key="item.name" class="runtu-render-item">
-                =
+           <div v-for="item in order.render" :key="item.name" class="runtu-render-item" @click="onHref(item.href)">
+                <img v-if="item.avatar" :src="item.avatar" alt="avatar" />
+                <span>{{item.name}}</span>
            </div>
        </div>
     </div>
@@ -17,7 +18,6 @@ import { computed, defineComponent, getCurrentInstance, onMounted } from 'vue-de
 export default defineComponent({
     setup() {
         const instance = getCurrentInstance().proxy
-        let render, title
 
         const order = computed(() => {
             const temp = instance.$page.path
@@ -40,8 +40,15 @@ export default defineComponent({
             return order
         })
 
+        const onHref = (url) => {
+            const a = document.createElement('a')
+            a.href = url;
+            a.click();
+            a.remove();
+        }
+
         return {
-            order
+            order, onHref
         }
     },
 })
@@ -49,7 +56,50 @@ export default defineComponent({
 
 <style lang="stylus" scoped>
 .runtu-half-content {
+    padding: 0 20px;
+    width: 50%;
     display: flex;
-    justify-content: left;
+    flex-direction: column;
+
+    .runtu-title {
+        line-height: 1.7;
+        color: #403e3e;
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .runtu-render {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+
+        .runtu-render-item {
+            cursor: pointer;
+            min-width: 150px;
+            height: 80px;
+            background-color: rgba(6,129,208,.1);
+            margin-right: 20px;
+            margin-top: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color, 0.2s;
+
+            &:hover {
+                background-color: rgba(6,129,208,.2);
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                margin-right: 20px
+            }
+            
+        }
+    }
+
+    
 }
 </style>
