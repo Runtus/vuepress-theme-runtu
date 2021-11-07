@@ -56,7 +56,7 @@ export default defineComponent({
 
 <style lang="stylus" scoped>
 .runtu-half-content {
-    padding: 0 20px;
+    padding: 60px 20px;
     width: 50%;
     display: flex;
     flex-direction: column;

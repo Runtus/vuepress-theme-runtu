@@ -8,6 +8,8 @@
         <!-- TODO 选项配置，不过这个可以放在后面自定义 -->
         <div class="runtu-navLinksBox">
             <NavLinks />
+            <!-- TODO searchbox 后续增加 -->
+            <!-- <SearchBox class="searchBox" /> -->
         </div>
     </header>
 </template>
@@ -15,10 +17,11 @@
 <script>
 import { defineComponent, onMounted, ref, getCurrentInstance, computed } from 'vue-demi'
 import { eventScrollInject } from '@theme/helpers/vueUtils'
+import SearchBox from '@SearchBox'
 import NavLinks from '@theme/components/NavLinks'
 
 export default defineComponent({
-    components: {NavLinks},
+    components: {NavLinks, SearchBox},
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
         const headerRef = ref(null)
@@ -58,6 +61,7 @@ export default defineComponent({
     height: 60px;
     align-content: center;
     padding-left: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.1)
 
     .runtu-intro {
         cursor: pointer;
@@ -80,6 +84,10 @@ export default defineComponent({
         display: flex;
         align-items: center;
         margin-right: 36px;
+
+        .searchBox {
+            margin-left: 48px;
+        }
     }
 }
 

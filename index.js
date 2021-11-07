@@ -4,7 +4,12 @@ module.exports = (options, ctx) => {
 
     return {
         plugins: [
+            ['reading-progress'],
             ['@vuepress/back-to-top'],
+            ['@vuepress/search', {
+                searchMaxSuggestions: 10,
+                test: '/blogs/'
+            }],
             ['vuepress-plugin-right-anchor',{
                 showDepth: 1000
             }],
