@@ -3,7 +3,7 @@
         <div class="runtu-about" v-if="this.$page.path === '/'">
             <SideImage :imageUrl="imageSidebar" />
             <div class="runtu-about-content">
-                <section class="runtu-about-content">
+                <section>
                     <Content class="theme-runtu-content" />
                 </section>
             </div>
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <BlogContent v-else />
+        <BlogContent class="runtu-blog-content-outer" v-else />
     </div>
 </template>
 
@@ -90,6 +90,7 @@ export default defineComponent({
 
         onMounted(() => {
             const backDOM = document.getElementById('runtu-background')
+            console.log('backDom',backDOM)
             const self = document.getElementById('runtu-intro')
 
             onDOMChange((res) => {
@@ -130,17 +131,21 @@ export default defineComponent({
     align-items: center;
 
 
+
     .runtu-about {
         width: 100%;
         display: flex;
 
         .runtu-about-content {
+            margin-top: 60px;
             width: 50%;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             
-            .runtu-about-content { 
-
+            
+            section { 
+               
             }
         }
     }
@@ -157,6 +162,7 @@ export default defineComponent({
 
 
         .runtu-pageBody {
+            
             position: relative;
             width: 100%;
             display: flex;
@@ -166,11 +172,11 @@ export default defineComponent({
             .intro {
                 position: absolute;
                 top: 20px;
-                left: 10%;
+                left: 5%;
             }
 
             .runtu-blogs-box {
-                width: 50%;
+                width: 640px;;
 
                 .header {
                     font-size: Roboto, system-ui,PingFang SC,STHeiti,sans-serif;
@@ -217,6 +223,9 @@ export default defineComponent({
         
     }
     
+    .runtu-blog-content-outer {
+        margin-top: 60px;
+    }
     .runtu-content {
         width: 60%;
     }
