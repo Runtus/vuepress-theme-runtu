@@ -5,7 +5,6 @@
  export const eventScrollInject = (dom, delay) => {
     let lastTop = 0;
     const DOMHeight = dom.clientHeight;
-    console.log(DOMHeight)
     window.onscroll = throttle(() => {
         const scrollTop = document.documentElement.scrollTop;
         if(lastTop > scrollTop){
@@ -27,6 +26,26 @@ export const onWindowSizeChange = (fn, delay) => {
             height: window.innerHeight
         })
     }, delay || 300)
+}
+
+// 根据修改DOM元素到顶部的位置来修改布局方式
+/**
+ * 
+ * @param {HTMLElement} dom 
+ */
+export const onDOMChange = (fn, dom) => {
+    // 为了保持六十帧的滑动，这里不能用节流，否则会卡顿
+    const temp = () => {
+        const {top, bottom, left, right} = dom.getBoundingClientRect()
+        fn({
+            top,
+            bottom,
+            left,
+            right
+        })
+    }
+
+    addEventListener('scroll', temp)
 }
 
 function throttle(fn, delay){
