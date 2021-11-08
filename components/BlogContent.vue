@@ -12,6 +12,9 @@
         <section class="runtu-content" >
             <Content class="theme-runtu-content" />
         </section>
+        <div class="footer">
+
+        </div>
         <button class="return-blogs" @click="returnBack">
             <i class="fas fa-arrow-left" />
         </button>
@@ -25,7 +28,6 @@ import { YMDFormat } from '@theme/helpers/timeFormat'
 export default defineComponent({
     setup() {
         const instance = getCurrentInstance().proxy
-        console.log('blog',instance)
 
         const returnBack = () => {
             instance.$router.push({ path: '/blogs/' })

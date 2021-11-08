@@ -27,31 +27,42 @@ export default defineComponent({
                 delete order.friends
             }
             else if(temp === '/archive') {
-                const meta = instance.$frontmatterKey._metaMap;
-                let array = []
-                for(let [key, value] of Object.entries(meta)){
-                    array.push({
-                        name: key,
-                        href: value.path
-                    })
-                }
-                order.render = [...array]
+                // const meta = instance.$tags._metaMap;
+                // let array = []
+                // for(let [key, value] of Object.entries(meta)){
+                //     array.push({
+                //         name: key,
+                //         href: value.path
+                //     })
+                // }
+                // order.render = [...array]
             }
             return order
         })
 
-        const onHref = (url) => {
-            const a = document.createElement('a')
-            a.href = url;
-            a.click();
-            a.remove();
-        }
+        // const onHref = ref()
+
+        // const onHref = (url) => {
+        //     const a = document.createElement('a')
+        //     a.href = url;
+        //     a.click();
+        //     a.remove();
+        // }
+
 
         return {
             order, onHref
         }
     },
 })
+
+// 由于SSR渲染的缘故，涉及到DOM操作的函数都在外部声明
+function onHref(url){
+    const a = document.createElement('a')
+    a.href = url;
+    a.click();
+    a.remove();
+}
 </script>
 
 <style lang="stylus" scoped>

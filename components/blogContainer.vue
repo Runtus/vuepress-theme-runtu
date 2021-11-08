@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, getCurrentInstance } from '@vue/composition-api'
+import { computed, defineComponent, getCurrentInstance } from 'vue-demi'
 import date_icon from '@theme/icons/date.png'
 import right_icon from '@theme/icons/right.png'
 import right_svg from '@theme/icons/right.svg'

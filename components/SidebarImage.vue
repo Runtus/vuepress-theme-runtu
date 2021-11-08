@@ -12,8 +12,14 @@ import { onWindowSizeChange } from '@theme/helpers/vueUtils'
 export default defineComponent({
     setup() {
         const instance = getCurrentInstance().proxy
+        const imageHeight = ref();
 
         onMounted(() => {
+            imageHeight.value = window.innerHeight
+            onWindowSizeChange((res) => {
+                imageHeight.value = res.height
+            })
+
             setTimeout(() => {
                 const imageDom = document.getElementById('sidebar')
                 const parallaxInstance = new Parallax(imageDom , {
@@ -23,12 +29,13 @@ export default defineComponent({
                 })
             });
         })
+
         
-        const imageHeight = ref(window.innerHeight)
-        onWindowSizeChange((res) => {
-            console.log(res.height)
-            imageHeight.value = res.height
-        })
+        // const imageHeight = ref(window.innerHeight)
+        // onWindowSizeChange((res) => {
+        //     console.log(res.height)
+        //     imageHeight.value = res.height
+        // })
         
 
 

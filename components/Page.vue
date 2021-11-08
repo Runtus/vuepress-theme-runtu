@@ -23,7 +23,7 @@
                         文章列表
                     </h2>
                     <div class="body">
-                        <div v-for="bItem in blogs" v-bind:key="bItem.key" class="runtu-blog-m">
+                        <div v-for="bItem in this.$pagination ? this.$pagination.pages : []" v-bind:key="bItem.key" class="runtu-blog-m">
                             <Blog :blogAttr="bItem" />
                         </div>
                     </div>   
@@ -32,14 +32,14 @@
                     <PageButton 
                     class="runtu-pre"
                     :dire="'left'" 
-                    :onClickTurn="paginTurning(preLink)" 
-                    v-show="preLink" 
+                    :onClickTurn="paginTurning(this.$pagination ? this.$pagination.prevLink : '')" 
+                    v-show="this.$pagination ? this.$pagination.prevLink : ''" 
                     key="pre"/>
                     <PageButton 
                     class="runtu-next"
                     :dire="'right'" 
-                    :onClickTurn="paginTurning(nextLink)" 
-                    v-show="nextLink"
+                    :onClickTurn="paginTurning(this.$pagination ? this.$pagination.nextLink : '')" 
+                    v-show="this.$pagination ? this.$pagination.nextLink : ''"
                     key="next"
                     />
                 </div>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, getCurrentInstance, onMounted, ref} from '@vue/composition-api'
+import { computed, defineComponent, getCurrentInstance, onMounted, onUpdated, ref} from 'vue-demi'
 import { onDOMChange } from '@theme/helpers/vueUtils'
 import Background from '@theme/components/background.vue'
 import Blog from '@theme/components/BlogContainer.vue'
@@ -67,17 +67,17 @@ export default defineComponent({
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
         // TODO computed返回的值都是Ref包装后的响应值\
-        let blogs, nextLink, preLink
-        console.log(instance)
 
-        // 非博客展示页 instance.$pagination 为 null
-        try {
-            blogs = computed(() => instance.$pagination.pages)
-            nextLink = computed(() => instance.$pagination.nextLink)
-            preLink = computed(() => instance.$pagination.prevLink)
-        } catch(err) {
+
+ 
+        // // 非博客展示页 instance.$pagination 为 null
+        // try {
+        //     blogs = computed(() => instance.$pagination.pages)
+        //     nextLink = computed(() => instance.$pagination.nextLink)
+        //     preLink = computed(() => instance.$pagination.prevLink)
+        // } catch(err) {
             
-        }
+        // }
 
         // 为了让子组件调用函数时能够获取link的值，需要返回一个函数，类似柯里化
         const paginTurning = (link) => () => {
@@ -110,9 +110,6 @@ export default defineComponent({
 
         
         return {
-            blogs,
-            nextLink,
-            preLink,
             paginTurning,
             imageUrl,
             imageSidebar,
@@ -120,6 +117,7 @@ export default defineComponent({
 
     }
 })
+
 
 
 </script>

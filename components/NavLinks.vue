@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, getCurrentInstance } from '@vue/composition-api'
+import { computed, defineComponent, getCurrentInstance } from 'vue-demi'
 
 // 缺省config
 const mockLinks = [

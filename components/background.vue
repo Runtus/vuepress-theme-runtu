@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue-demi'
+import { defineComponent, onMounted } from 'vue-demi'
 
 export default defineComponent({
     name: 'Background',
     setup(props, ctx) {
         // 渲染图片
-        setTimeout(() => {
+        onMounted(() => {
             const imageDom = document.getElementById('runtu-background')
             const parallaxInstance = new Parallax(imageDom, {
                 limitX: 70,
