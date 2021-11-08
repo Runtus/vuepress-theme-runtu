@@ -12,6 +12,9 @@
         <section class="runtu-content" >
             <Content class="theme-runtu-content" />
         </section>
+        <button class="return-blogs" @click="returnBack">
+            <i class="fas fa-arrow-left" />
+        </button>
     </div> 
 </template>
 
@@ -24,7 +27,11 @@ export default defineComponent({
         const instance = getCurrentInstance().proxy
         console.log('blog',instance)
 
-        return { YMDFormat }
+        const returnBack = () => {
+            instance.$router.push({ path: '/blogs/' })
+        }
+
+        return { YMDFormat, returnBack }
     },
 })
 </script>
@@ -61,6 +68,22 @@ export default defineComponent({
 
         .page-time {
             color: #5c6b72;
+        }
+    }
+
+    .return-blogs {
+        position: fixed;
+        top: 100px;
+        left: 50px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+        border: none;
+        
+        i {
+            font-size: 25px;
+            color: #3eaf7c
         }
     }
 

@@ -14,9 +14,10 @@
                 <Background :imageUrl='imageUrl' id="runtu-background" />
             </div>
             <div class="runtu-pageBody">
-                <div class="intro" id="runtu-intro">
+                <!-- 自我介绍先不展示 -->
+                <!-- <div class="intro" id="runtu-intro">
                     <SelfIntro  />
-                </div>
+                </div> -->
                 <div class="runtu-blogs-box">
                     <h2 class="header">
                         文章列表
@@ -88,24 +89,24 @@ export default defineComponent({
         // TODO 这里只是暂时这样放，后期会移植到HalfL模版里
         const imageSidebar = computed(() => instance.$frontmatter ? instance.$frontmatter.imageUrl : '')
 
-        onMounted(() => {
-            const backDOM = document.getElementById('runtu-background')
-            console.log('backDom',backDOM)
-            const self = document.getElementById('runtu-intro')
+        // TODO 自我介绍先不展示
+        // onMounted(() => {
+        //     const backDOM = document.getElementById('runtu-background')
+        //     const self = document.getElementById('runtu-intro')
 
-            onDOMChange((res) => {
-                const position = window.getComputedStyle(self, null)['position'];
+        //     onDOMChange((res) => {
+        //         const position = window.getComputedStyle(self, null)['position'];
 
-                if(res.bottom <= 0 && position === 'absolute') {
-                    self.style.position = 'fixed'
-                    self.style.top = '20px'
-                } else if ( res.bottom > 0 && position === 'fixed') {
-                    self.style.position = 'absolute'
-                    self.style.top = '20px'
-                } else {}
+        //         if(res.bottom <= 0 && position === 'absolute') {
+        //             self.style.position = 'fixed'
+        //             self.style.top = '20px'
+        //         } else if ( res.bottom > 0 && position === 'fixed') {
+        //             self.style.position = 'absolute'
+        //             self.style.top = '20px'
+        //         } else {}
 
-            }, backDOM)
-        })
+        //     }, backDOM)
+        // })
 
         
         return {
@@ -226,6 +227,7 @@ export default defineComponent({
     .runtu-blog-content-outer {
         margin-top: 60px;
     }
+
     .runtu-content {
         width: 60%;
     }
