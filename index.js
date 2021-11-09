@@ -14,15 +14,15 @@ module.exports = (options, ctx) => {
             ['@vuepress/plugin-blog', {
                 frontmatters: [
                     {
-                        id: 'tags',
-                        keys: ['tags'],
-                        path: '/archive',
+                        id: 'archive',
+                        keys: ['archive'],
+                        path: '/archive/',
                         layout: 'HalfL'
                     },
                     {
                         id: 'friend',
                         keys: ['friend'],
-                        path: '/friend',
+                        path: '/friend/',
                         layout: 'HalfL'
                     }
                 ],
@@ -33,7 +33,7 @@ module.exports = (options, ctx) => {
                         path: '/blogs/',
                         // page分页
                         pagination: {
-                            lengthPerPage: 4
+                            lengthPerPage: 7
                         }
                     }
                 ]

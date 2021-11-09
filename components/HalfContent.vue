@@ -111,6 +111,13 @@ function onHref(url){
         }
     }
 
+    @media screen and (max-width: 600px) {
+        width: 100%;   
+
+        .runtu-title {
+            margin: 24px auto;    
+        } 
+    }
     
 }
 </style>

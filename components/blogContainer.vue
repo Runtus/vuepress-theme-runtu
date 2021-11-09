@@ -130,6 +130,14 @@ export default defineComponent({
             }
     }
 
+
     
+}
+
+    // 媒体查询
+@media screen and (max-width: 600px){
+    .runtu-blogContainer {
+        width: 100%;
+    }
 }
 </style>
