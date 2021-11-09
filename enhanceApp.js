@@ -1,4 +1,6 @@
 import { addHeaderScript, addHeaderLink } from '@theme/helpers/utils'
+import '@theme/style/global.styl'
+import 'animate.css'
 
 export default ({
     Vue,

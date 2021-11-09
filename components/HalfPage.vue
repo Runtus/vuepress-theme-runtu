@@ -1,6 +1,6 @@
 <template>
     <div class="runtu-halfpage">
-        <SidebarImage :imageUrl="imageUrl" />
+        <SidebarImage :imageUrl="imageUrl" class="halfpage-sidebar-image" />
         <HalfContent />
     </div>
 </template>
@@ -32,6 +32,12 @@ export default defineComponent({
     width: 100%;
     display: flex;
     flex-direction: row;
+
+    @media screen and (max-width: 600px) {
+        .halfpage-sidebar-image {
+            display: none;
+        }    
+    }
 
 }
 </style>

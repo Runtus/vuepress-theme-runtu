@@ -50,6 +50,7 @@ export default defineComponent({
 
 <style lang="stylus" scoped>
 .runtu-header {
+    min-width: 800px;
     z-index: 100;
     transition: top 0.3s ;
     position: fixed;
@@ -89,6 +90,17 @@ export default defineComponent({
             margin-left: 48px;
         }
     }
+
+
+
+    
+}
+
+@media screen and (max-width:600px) {
+    .runtu-header {
+        // display: none;
+    }
+
 }
 
 </style>

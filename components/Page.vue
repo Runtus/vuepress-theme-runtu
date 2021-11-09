@@ -1,10 +1,16 @@
 <template>
     <div class="runtu-page">
         <div class="runtu-about" v-if="this.$page.path === '/'">
-            <SideImage :imageUrl="imageSidebar" />
+            <SideImage :imageUrl="imageSidebar" class="page-sideimage" />
             <div class="runtu-about-content">
                 <section>
                     <Content class="theme-runtu-content" />
+                    <div class="go-home animate__animated animate__heartBeat animate__infinite">
+                        <span @click="goHome">
+                            Get Start
+                            <i class="far fa-paper-plane"></i>
+                        </span> 
+                    </div>
                 </section>
             </div>
         </div>
@@ -89,6 +95,10 @@ export default defineComponent({
         // TODO 这里只是暂时这样放，后期会移植到HalfL模版里
         const imageSidebar = computed(() => instance.$frontmatter ? instance.$frontmatter.imageUrl : '')
 
+        const goHome = () => {
+            instance.$router.push({ path: '/blogs/' })
+        }
+
         // TODO 自我介绍先不展示
         // onMounted(() => {
         //     const backDOM = document.getElementById('runtu-background')
@@ -113,6 +123,7 @@ export default defineComponent({
             paginTurning,
             imageUrl,
             imageSidebar,
+            goHome
         }
 
     }
@@ -129,8 +140,6 @@ export default defineComponent({
     flex-direction: column;
     align-items: center;
 
-
-
     .runtu-about {
         width: 100%;
         display: flex;
@@ -143,8 +152,31 @@ export default defineComponent({
             flex-direction: column;
             
             
-            section { 
+            section {
+                word-wrap: break-word;
+                padding-left: 12px;
+                padding-right: 12px;
+                
+
                
+               .go-home { 
+                   display: flex;
+                   justify-content: center;
+                   margin-top: 36px;
+                   font-size: 20px;
+                   font-weight: 500;
+                   --animate-duration: 16s;
+                   --animate-delay: 1s;
+                   color: #4C4C4C;
+
+                   span {
+                       cursor: pointer;
+                        i {
+                            margin-left: 4px;
+                        }
+                   }
+                   
+               }
             }
         }
     }
@@ -228,6 +260,28 @@ export default defineComponent({
 
     .runtu-content {
         width: 60%;
+    }
+
+    // 媒体查询
+    @media screen and (max-width: 600px){
+        .runtu-blogs {
+            margin-top: 60px;
+            #runtu-background {
+                display: none;
+            }
+        }
+
+        .runtu-about {
+            .runtu-about-content {
+                width: 100%;
+            }
+
+            .page-sideimage {
+                display: none;
+            }
+        }
+
+
     }
 }
 
