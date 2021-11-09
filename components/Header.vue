@@ -98,7 +98,9 @@ export default defineComponent({
 
 @media screen and (max-width:600px) {
     .runtu-header {
-        // display: none;
+        min-width: 300px;
+        width: 100%;
+        max-width: 600px;
     }
 
 }

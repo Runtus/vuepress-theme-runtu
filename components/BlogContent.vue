@@ -88,7 +88,22 @@ export default defineComponent({
             color: #3eaf7c
         }
     }
+}
 
+@media screen and (max-width: 600px) {
+    .runtu-blog-content {
+        width: 80%;
 
+        .return-blogs  {
+            left: 12px;
+            top: 72px;
+            width: 30px;
+            height: 30px;
+
+            i {
+                font-size: 16px;
+            }
+        }
+    }    
 }
 </style>

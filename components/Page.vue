@@ -207,7 +207,7 @@ export default defineComponent({
             }
 
             .runtu-blogs-box {
-                width: 640px;;
+                width: 640px;
 
                 .header {
                     font-size: Roboto, system-ui,PingFang SC,STHeiti,sans-serif;
@@ -266,8 +266,26 @@ export default defineComponent({
     @media screen and (max-width: 600px){
         .runtu-blogs {
             margin-top: 60px;
+
             #runtu-background {
                 display: none;
+            }
+
+            .runtu-pageBody {
+                
+                .runtu-blogs-box {
+                    width: 100%; 
+
+                    .body {
+                        .runtu-blog-m {
+                            width: 90%;    
+                        }    
+                    }
+                }
+
+                .runtu-bottom {
+                    width: 400px;    
+                }
             }
         }
 
