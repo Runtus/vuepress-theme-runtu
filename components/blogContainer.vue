@@ -24,7 +24,7 @@ import { computed, defineComponent, getCurrentInstance } from 'vue-demi'
 import date_icon from '@theme/icons/date.png'
 import right_icon from '@theme/icons/right.png'
 import right_svg from '@theme/icons/right.svg'
-import { YMDFormat } from '@theme/helpers/timeFormat' 
+import { YMDFormat } from '@theme/helpers/timeFormat'
 
 export default defineComponent({
     setup(props, ctx) {
@@ -58,8 +58,11 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" scoped>
+@require "../styles/variables.styl"
 
 .runtu-blogContainer {
+    z-index: 1;
+    isolation: isolate;
     border-radius: 5px;
     box-shadow: 1px 1px 5px #bfbfbf;
     width: 600px;
@@ -101,7 +104,7 @@ export default defineComponent({
         .runtu-date {
                 display: flex;
                 align-items: center;
-                color: #808091;
+                color: $gray-500;
 
                 img {
                     width: 1.1rem;
@@ -114,7 +117,7 @@ export default defineComponent({
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                color: #808091;
+                color: $gray-500;
                 transition: 0.5s color;
 
 
@@ -138,6 +141,21 @@ export default defineComponent({
 @media screen and (max-width: 600px){
     .runtu-blogContainer {
         width: 100%;
+    }
+}
+
+.darkmode--activated {
+
+    .runtu-blogContainer {
+        box-shadow: 1px 1px 5px $gray-200;
+    }
+
+    .runtu-date {
+        color: black !important;
+    }
+
+    .runtu-readmore {
+        color: black !important;
     }
 }
 </style>

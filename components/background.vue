@@ -30,6 +30,7 @@ export default defineComponent({
     width: 100%;
     max-height: 500px;
     overflow: hidden;
+    z-index: 1;
     
     img {
         width: 110%;

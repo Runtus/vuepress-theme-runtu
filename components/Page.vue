@@ -65,7 +65,7 @@ import SideImage from '@theme/components/SidebarImage'
 import PageButton from '@theme/components/PageButton'
 import BlogContent from '@theme/components/BlogContent'
 import SelfIntro from '@theme/components/SelfIntro'
-import '@theme/style/content.styl'
+import '@theme/styles/content.styl'
 
 
 export default defineComponent({
@@ -153,6 +153,7 @@ export default defineComponent({
             
             
             section {
+                z-index: 2;
                 word-wrap: break-word;
                 padding-left: 12px;
                 padding-right: 12px;
@@ -301,6 +302,11 @@ export default defineComponent({
 
 
     }
+}
+
+// 暗黑模式
+.darkmode--activated section, a {
+    color: #fff ;    
 }
 
 </style>

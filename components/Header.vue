@@ -51,18 +51,16 @@ export default defineComponent({
 <style lang="stylus" scoped>
 .runtu-header {
     min-width: 800px;
-    z-index: 100;
     transition: top 0.3s ;
-    position: fixed;
     width: 100%;
     top: 0;
-    background-color: white;
     display: flex;
     justify-content: space-between;
     height: 60px;
     align-content: center;
     padding-left: 24px;
     border-bottom: 1px solid rgba(0,0,0,0.1)
+    background-color: #fff;
 
     .runtu-intro {
         cursor: pointer;
@@ -70,9 +68,11 @@ export default defineComponent({
         align-items: center;
 
         img {
+            z-index: 1;
             width: 40px;
             height: 40px;
             border-radius: 20px;
+            background-color: black;
         }
 
         span {

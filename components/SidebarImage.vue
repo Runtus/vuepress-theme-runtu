@@ -50,6 +50,7 @@ export default defineComponent({
 
 <style scoped lang="stylus">
 #sidebar {
+    z-index: 1;
     width: 50%;
     overflow: hidden; 
 
