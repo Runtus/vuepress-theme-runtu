@@ -21,9 +21,6 @@
 
 <script>
 import { computed, defineComponent, getCurrentInstance } from 'vue-demi'
-import date_icon from '@theme/icons/date.png'
-import right_icon from '@theme/icons/right.png'
-import right_svg from '@theme/icons/right.svg'
 import { YMDFormat } from '@theme/helpers/timeFormat' 
 
 export default defineComponent({
@@ -39,9 +36,6 @@ export default defineComponent({
         return {
             blogClick, 
             formatDate, 
-            date_icon, 
-            right_icon,
-            right_svg
         }
     },
     /**
