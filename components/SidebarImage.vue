@@ -15,9 +15,9 @@ export default defineComponent({
         const imageHeight = ref();
 
         onMounted(() => {
-            imageHeight.value = window.innerHeight
+            imageHeight.value = window.innerHeight - 60
             onWindowSizeChange((res) => {
-                imageHeight.value = res.height
+                imageHeight.value = res.height - 60
             })
 
             setTimeout(() => {

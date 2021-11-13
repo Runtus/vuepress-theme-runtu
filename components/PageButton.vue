@@ -2,10 +2,10 @@
     <div class="runtu-button" @click="onClickTurn">
         <div v-if="dire === 'right'" class="runtu-nextpage">
             Next
-            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-chevron-right" />
         </div>
         <div v-else class="runtu-prepage">
-            <i class="fas fa-chevron-left"></i>
+            <i class="fas fa-chevron-left" />
             Left
         </div>
     </div>
@@ -23,6 +23,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" scoped>
+@require '../styles/variables.styl'
+
 .runtu-button {
     div {
         cursor: pointer;
@@ -39,5 +41,19 @@ export default defineComponent({
             color: #d9d9d9;
         }
     }
+}
+
+// darkmode
+.darkmode--activated {
+    .runtu-button {
+        
+        div {
+            color: black;
+
+            i {
+                color: $gray-800;
+            }
+        }    
+    }    
 }
 </style>

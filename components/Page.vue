@@ -134,6 +134,7 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" scoped>
+@require '../styles/variables'
 .runtu-page {
     width: 100%;
     display: flex;
@@ -191,6 +192,7 @@ export default defineComponent({
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        position: relative;
 
 
         .runtu-pageBody {
@@ -305,8 +307,17 @@ export default defineComponent({
 }
 
 // 暗黑模式
-.darkmode--activated section, a {
-    color: #fff ;    
+.darkmode--activated  {
+    section {
+        color: #fff;
+    }
+
+    .go-home {
+        span {
+            color: $gray-100;
+        }    
+    }
 }
+
 
 </style>

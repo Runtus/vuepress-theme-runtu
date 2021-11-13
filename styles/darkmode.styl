@@ -1,7 +1,21 @@
 @import "./variables.styl"
 
-.darkmode-activated {
-    p, li,  {
-               
-    }    
+
+// 解决darkmode造成的image反色
+.medium-zoom-image {
+    position: relative;
+    z-index: 1;
+}
+
+// 解决右侧导航的背景颜色渲染bug
+.ra-button {
+     background-color: rgba(255,255,255,0) !important;
+}
+
+.darkmode--activated {
+    .ra-button {
+        svg {
+            color: $blue-600 !important;
+        }
+    }   
 }
