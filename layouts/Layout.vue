@@ -31,7 +31,6 @@ export default defineComponent({
 a {
     text-decoration: none
     outline-color: none
-    color: #000
 }
 
 .theme-container {

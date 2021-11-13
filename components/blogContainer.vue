@@ -8,12 +8,12 @@
         </section>
         <div class="runtu-blog-bottom">
             <span class="runtu-date">
-                <img :src="date_icon" alt="icon-date"/>
-            {{formatDate}}
+                <i class="date-icon fas fa-calendar" />
+                {{formatDate}}
             </span>
             <span class="runtu-readmore" @click="blogClick(blogAttr.path)">
                 Read more
-                <img :src="right_svg" alt="icon-right">
+                <i class="fas fa-angle-right" />
             </span>
         </div>
     </div>
@@ -21,10 +21,7 @@
 
 <script>
 import { computed, defineComponent, getCurrentInstance } from 'vue-demi'
-import date_icon from '@theme/icons/date.png'
-import right_icon from '@theme/icons/right.png'
-import right_svg from '@theme/icons/right.svg'
-import { YMDFormat } from '@theme/helpers/timeFormat'
+import { YMDFormat } from '@theme/helpers/timeFormat' 
 
 export default defineComponent({
     setup(props, ctx) {
@@ -39,9 +36,6 @@ export default defineComponent({
         return {
             blogClick, 
             formatDate, 
-            date_icon, 
-            right_icon,
-            right_svg
         }
     },
     /**
@@ -61,7 +55,6 @@ export default defineComponent({
 @require "../styles/variables.styl"
 
 .runtu-blogContainer {
-    z-index: 1;
     isolation: isolate;
     border-radius: 5px;
     box-shadow: 1px 1px 5px #bfbfbf;
@@ -106,7 +99,7 @@ export default defineComponent({
                 align-items: center;
                 color: $gray-500;
 
-                img {
+                .date-icon {
                     width: 1.1rem;
                     height: 1.1rem;
                     margin-right: 4px;
@@ -121,9 +114,8 @@ export default defineComponent({
                 transition: 0.5s color;
 
 
-                img {
-                    width: 0.8rem;
-                    height: 0.8rem;
+                i {
+                    font-size: 1.1rem;
                     margin-left: 4px;
                 }
             }

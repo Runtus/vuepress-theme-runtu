@@ -55,8 +55,10 @@ export default defineComponent({
 
 
 <style lang="stylus" scoped>
+@require '../styles/variables.styl'
 
 .runtu-navLinks {
+    z-index: 1;
     cursor: pointer;
     display: flex;
     width: 200px;
@@ -81,10 +83,15 @@ export default defineComponent({
                 width: 100%;
             }
         }
-
-
     }
+}
 
+.darkmode--activated {
+    .runtu-hrefbox {
+        span {
+            color: $gray-50;
+        }
+    }
 
 }
 </style>

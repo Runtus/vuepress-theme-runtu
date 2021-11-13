@@ -67,7 +67,7 @@ function onHref(url){
 
 <style lang="stylus" scoped>
 .runtu-half-content {
-    padding: 60px 20px;
+    padding: 20px;
     width: 50%;
     display: flex;
     flex-direction: column;

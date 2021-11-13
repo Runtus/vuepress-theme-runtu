@@ -1,6 +1,7 @@
 import { addHeaderScript, addHeaderLink } from '@theme/helpers/utils'
 import DarkMode from 'darkmode-js'
 import '@theme/styles/global.styl'
+import '@theme/styles/darkmode.styl'
 import 'animate.css'
 
 
@@ -11,13 +12,14 @@ export default ({
     router,
     siteData
 }) => {
+    // TODO 配置用户可自定义
     const darkmode = new DarkMode({
         bottom: '64px',
-        right: 'unset',
+        left: 'unset',
         // backgroundColor: '#1F2937',
         mixColor: '#DDD',
         buttonColorDark: '#1F2937',
-        left: '32px',
+        right: '32px',
         time: '0.5s',
         saveInCookies: false,
         label: '🌓'

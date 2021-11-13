@@ -62,7 +62,7 @@ export default defineComponent({
             
         }
     }
-
+    
     .page-meta {
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
@@ -82,6 +82,7 @@ export default defineComponent({
         border-radius: 50px;
         cursor: pointer;
         border: none;
+        z-index: 1;
         
         i {
             font-size: 25px;
