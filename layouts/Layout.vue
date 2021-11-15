@@ -2,6 +2,7 @@
     <div class="theme-container">
         <Header />
         <Page class="page-container"/>
+        <Footer />
     </div>
 </template>
 
@@ -9,10 +10,11 @@
 import { defineComponent, getCurrentInstance } from 'vue-demi'
 import Page from '@theme/components/Page.vue'
 import Header from '@theme/components/Header.vue'
+import Footer from '@theme/components/Footer.vue'
 
 export default defineComponent({
     // TODO 注册组件
-    components: { Page, Header },
+    components: { Page, Header, Footer },
     setup(props, ctx) {
 
     }
