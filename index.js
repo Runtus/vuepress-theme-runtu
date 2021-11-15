@@ -33,7 +33,7 @@ module.exports = (options, ctx) => {
                         path: '/blogs/',
                         // page分页
                         pagination: {
-                            lengthPerPage: 7
+                            lengthPerPage: 5
                         }
                     }
                 ]

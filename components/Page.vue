@@ -57,7 +57,6 @@
 
 <script>
 import { computed, defineComponent, getCurrentInstance, onMounted, onUpdated, ref} from 'vue-demi'
-import { onDOMChange } from '@theme/helpers/vueUtils'
 import Background from '@theme/components/background.vue'
 import Blog from '@theme/components/BlogContainer.vue'
 import Header from '@theme/components/Header'
@@ -72,18 +71,6 @@ export default defineComponent({
     components: {Background, Blog, Header, SideImage, PageButton, BlogContent, SelfIntro},
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
-        // TODO computed返回的值都是Ref包装后的响应值\
-
-
- 
-        // // 非博客展示页 instance.$pagination 为 null
-        // try {
-        //     blogs = computed(() => instance.$pagination.pages)
-        //     nextLink = computed(() => instance.$pagination.nextLink)
-        //     preLink = computed(() => instance.$pagination.prevLink)
-        // } catch(err) {
-            
-        // }
 
         // 为了让子组件调用函数时能够获取link的值，需要返回一个函数，类似柯里化
         const paginTurning = (link) => () => {
