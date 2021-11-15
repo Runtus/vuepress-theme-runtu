@@ -13,7 +13,9 @@
             <Content class="theme-runtu-content" />
         </section>
         <div class="footer">
-
+            <span>
+                ～～～～到底部啦～～～～
+            </span>
         </div>
         <button class="return-blogs" @click="returnBack">
             <i class="fas fa-arrow-left" />
@@ -39,6 +41,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="stylus">
+@require "../styles/variables"
 .runtu-blog-content {
     width: 60%;
 
@@ -88,6 +91,27 @@ export default defineComponent({
             font-size: 25px;
             color: #3eaf7c
         }
+    }
+    
+    .footer {
+        display: flex;
+        // border: 1px solid black
+        justify-content: center;
+        margin-top: 36px;
+
+        span {
+            opacity: 0.7;
+            font-size: 1.1rem;
+            color: $gray-600;
+            font-weight: 500;
+            transition: 0.2s easa;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        
     }
 }
 
