@@ -24,8 +24,9 @@
 </template>
 
 <script>
-import { defineComponent, getCurrentInstance } from 'vue-demi'
+import { defineComponent, getCurrentInstance, onMounted } from 'vue-demi'
 import { YMDFormat } from '@theme/helpers/timeFormat'
+import hljs from 'highlight.js'
 
 export default defineComponent({
     setup() {
@@ -34,6 +35,12 @@ export default defineComponent({
         const returnBack = () => {
             instance.$router.push({ path: '/blogs/' })
         }
+
+        onMounted(() => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        })
 
         return { YMDFormat, returnBack }
     },

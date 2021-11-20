@@ -1,3 +1,5 @@
+
+
 module.exports = (options, ctx) => {
 
     return {
@@ -49,7 +51,7 @@ module.exports = (options, ctx) => {
             }]
         ],
         extendMarkdown: md => {
-            md.set({ breaks: true, linkify: true, typographer: true })
+            
         },
     
     }

@@ -1,6 +1,6 @@
 import { addHeaderScript, addHeaderLink } from '@theme/helpers/utils'
+import "highlight.js/styles/default.css"
 import DarkMode from 'darkmode-js'
-import '@theme/styles/global.styl'
 import '@theme/styles/darkmode.styl'
 import 'animate.css'
 
@@ -27,4 +27,5 @@ export default ({
     darkmode.showWidget();
     addHeaderScript('https://lib.baomitu.com/parallax/3.1.0/parallax.min.js')
     addHeaderLink('https://lib.baomitu.com/font-awesome/5.15.4/css/all.min.css')
+    
 }

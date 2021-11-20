@@ -1,3 +1,6 @@
+@require './variables'
+$list-left = 28px
+
 .theme-runtu-content
     p, li
         line-height: 30px
@@ -8,4 +11,21 @@
         display: block
         margin: 32px auto
     li > ul 
-        margin-left: 28px;
+        margin-left: 28px
+
+    ul,ol > li
+        margin-left: $list-left
+
+    blockquote 
+        padding: 0 1rem
+        overflow: auto
+        border-left: 0.2rem solid $blue-100
+        color: $gray-400
+        margin: 24px 0;
+    
+    pre {
+        margin: 24px 0;
+        * {
+            font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace
+        }
+    }
