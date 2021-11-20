@@ -1,8 +1,8 @@
 import { addHeaderScript, addHeaderLink } from '@theme/helpers/utils'
-import "highlight.js/styles/default.css"
 import DarkMode from 'darkmode-js'
 import '@theme/styles/darkmode.styl'
 import 'animate.css'
+import "highlight.js/styles/default.css"
 
 
 

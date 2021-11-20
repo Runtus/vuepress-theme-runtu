@@ -49,11 +49,6 @@ module.exports = (options, ctx) => {
                     margin: 16
                 }
             }]
-        ],
-        extendMarkdown: md => {
-            
-        },
-    
+        ]  
     }
-
 }
