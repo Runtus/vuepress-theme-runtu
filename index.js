@@ -16,10 +16,11 @@ module.exports = (options, ctx) => {
             ['@vuepress/plugin-blog', {
                 frontmatters: [
                     {
-                        id: 'archive',
-                        keys: ['archive'],
-                        path: '/archive/',
-                        layout: 'HalfL'
+                        id: 'tag',
+                        keys: ['tags', 'tag'],
+                        path: '/tag/',
+                        layout: 'HalfL',
+                        scopeLayout: 'Tag'
                     },
                     {
                         id: 'friend',
