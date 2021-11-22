@@ -26,28 +26,20 @@ export default defineComponent({
                 order.render = [...order.friends]
                 delete order.friends
             }
-            else if(temp === '/archive') {
-                // const meta = instance.$tags._metaMap;
-                // let array = []
-                // for(let [key, value] of Object.entries(meta)){
-                //     array.push({
-                //         name: key,
-                //         href: value.path
-                //     })
-                // }
-                // order.render = [...array]
+            else if(temp === '/tag/') {
+                const meta = instance.$tag.list;
+                let array = []
+                for(let value of meta){
+                    console.log(encodeURI(value.path))
+                    array.push({
+                        name: value.name,
+                        href: encodeURI(value.path) 
+                    })
+                }
+                order.render = [...array]
             }
             return order
         })
-
-        // const onHref = ref()
-
-        // const onHref = (url) => {
-        //     const a = document.createElement('a')
-        //     a.href = url;
-        //     a.click();
-        //     a.remove();
-        // }
 
 
         return {

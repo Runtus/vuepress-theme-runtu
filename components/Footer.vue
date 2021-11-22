@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer :style="footerStyleRef">
         <div class="line-1">
             <!-- TODO 设置 -->
             Copyrights © {{this.$themeConfig.footer.date}} {{this.$themeConfig.footer.author}}
@@ -11,11 +11,26 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue-demi'
+import { defineComponent, onMounted, ref } from 'vue-demi'
 
 export default defineComponent({
     setup() {
-        
+        const footerStyleRef = ref();
+        onMounted(() => {
+            if(document.getElementById('app').clientHeight < window.innerHeight) {
+                footerStyleRef.value = {
+                    position: 'fixed'
+                }
+            } else {
+                footerStyleRef.value = {
+                    position: 'relative'
+                }
+            }
+        })
+
+        return {
+            footerStyleRef
+        }
     },
 })
 </script>
@@ -23,6 +38,7 @@ export default defineComponent({
 <style lang="stylus" scoped>
 @require '../styles/variables.styl'
 footer {
+    bottom: 0;
     padding: 20px 0;
     display: flex;
     flex-direction: column;

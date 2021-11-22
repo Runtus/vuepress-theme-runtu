@@ -33,7 +33,7 @@ export default defineComponent({
         const instance = getCurrentInstance().proxy
 
         const returnBack = () => {
-            instance.$router.push({ path: '/blogs/' })
+            instance.$router.go(-1)
         }
 
         onMounted(() => {
