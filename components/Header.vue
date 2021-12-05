@@ -5,11 +5,11 @@
             <!-- TODO 博客名称配置 -->
             <span>Runtus</span>
         </div>
+        <!-- TODO searchbox 后续增加 -->
+        <!-- <SearchBox class="searchBox" /> -->
         <!-- TODO 选项配置，不过这个可以放在后面自定义 -->
         <div class="runtu-navLinksBox">
             <NavLinks />
-            <!-- TODO searchbox 后续增加 -->
-            <!-- <SearchBox class="searchBox" /> -->
         </div>
     </header>
 </template>

@@ -17,7 +17,7 @@ export default defineComponent({
     setup() {
         const footerStyleRef = ref();
         onMounted(() => {
-            if(document.getElementById('app').clientHeight < window.innerHeight) {
+            if(document.getElementById('app').clientHeight <= window.innerHeight) {
                 footerStyleRef.value = {
                     position: 'fixed'
                 }
