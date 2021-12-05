@@ -1,6 +1,7 @@
 <template>
     <div class="theme-container">
-        <Header />
+        <!-- <Header /> -->
+        <Sidebar />
         <Page class="page-container"/>
         <Footer />
     </div>
@@ -9,12 +10,12 @@
 <script>
 import { defineComponent, getCurrentInstance } from 'vue-demi'
 import Page from '@theme/components/Page.vue'
-import Header from '@theme/components/Header.vue'
+import Sidebar from '@theme/components/Sidebar'
 import Footer from '@theme/components/Footer.vue'
 
 export default defineComponent({
     // TODO 注册组件
-    components: { Page, Header, Footer },
+    components: { Page, Footer, Sidebar },
     setup(props, ctx) {
 
     }
