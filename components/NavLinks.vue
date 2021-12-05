@@ -1,5 +1,5 @@
 <template>
-    <div class="runtu-navLinks">
+    <div class="runtu-navLinks" :style="{flexDirection: display || 'row'}">
         <div class="runtu-hrefbox" v-for="item in links" :key="item.name" @click="turn(item.route)">
             <span>{{item.name}}</span>
             <div />
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, getCurrentInstance } from 'vue-demi'
+import { computed, defineComponent, getCurrentInstance, onMounted, ref } from 'vue-demi'
 
 // 缺省config
 const mockLinks = [
@@ -45,11 +45,11 @@ export default defineComponent({
             }).catch(err => {})
         }
 
-
         return {
             links, turn
         }
     },
+    props: ['display'],
 })
 </script>
 
@@ -61,13 +61,14 @@ export default defineComponent({
     z-index: 1;
     cursor: pointer;
     display: flex;
-    width: 200px;
+    height: 200px;
     justify-content: space-around;
+    align-items: center;
 
     .runtu-hrefbox {
         span {
             font-weight: 500;
-            color: #2c3e50; 
+            color: $gray-400; 
         }
 
         div {

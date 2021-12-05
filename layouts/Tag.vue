@@ -1,6 +1,6 @@
 <template>
     <div class="Tag">
-        <Header />
+        <Sidebar />
         <div class="archive-title">
             #{{this.$currentTag.key}}
         </div>
@@ -29,11 +29,11 @@
 <script>
 import { defineComponent, getCurrentInstance } from 'vue-demi'
 import { YMDFormat } from '@theme/helpers/timeFormat.js'
-import Header from '@theme/components/Header'
+import Sidebar from '@theme/components/Sidebar'
 import Footer from '@theme/components/Footer'
 
 export default defineComponent({
-    components: { Header, Footer },
+    components: { Sidebar, Footer },
     setup() {
         const instance = getCurrentInstance().proxy;
         console.log(instance)
@@ -58,14 +58,14 @@ export default defineComponent({
 .archive-title {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-left: 5rem;
-    margin-top: 2rem;
+    margin-left: 7rem;
+    padding-top: 2rem;
 
 }
 
 .time-line {
     margin-top: 2rem;
-    margin-left: 6rem;
+    margin-left: 8rem;
     border-left: 0.1rem dashed #999;
     padding-left: 2rem;
 

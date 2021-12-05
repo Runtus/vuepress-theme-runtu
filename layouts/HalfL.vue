@@ -1,6 +1,6 @@
 <template>
     <div class="HalfLayout">
-        <Header />
+        <Sidebar />
         <HalfPage />
     </div>
 </template>
@@ -9,9 +9,10 @@
 import { defineComponent } from 'vue-demi'
 import Header from '@theme/components/Header'
 import HalfPage from '@theme/components/HalfPage'
+import Sidebar from '@theme/components/Sidebar'
 
 export default defineComponent({
-    components: {Header, HalfPage},
+    components: {Header, HalfPage, Sidebar},
     setup() {
         
     }
