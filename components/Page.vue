@@ -15,15 +15,20 @@
             </div>
         </div>
 
+<!-- 博客展示页 -->
         <div class="runtu-blogs" v-else-if="new RegExp('/blog*').test(this.$page.path)">
             <div class="runtu-pageHeader">
                 <Background :imageUrl='imageUrl' id="runtu-background" />
+                <h2 class="coverTitle">
+                    {{this.$siteTitle}}
+                </h2>
+                <!-- 下滑button -->
+                <div @click="scrollSmoothToBlogs" class="downArrow">
+                    <i class="fas fa-arrow-down animate__animated animate__fadeOutDown animate__infinite" />
+                </div>
             </div>
+
             <div class="runtu-pageBody">
-                <!-- 自我介绍先不展示 -->
-                <!-- <div class="intro" id="runtu-intro">
-                    <SelfIntro  />
-                </div> -->
                 <div class="runtu-blogs-box">
                     <h2 class="header">
                         文章列表
@@ -71,6 +76,7 @@ export default defineComponent({
     components: {Background, Blog, Header, SideImage, PageButton, BlogContent, SelfIntro},
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
+        console.log(instance)
 
         // 为了让子组件调用函数时能够获取link的值，需要返回一个函数，类似柯里化
         const paginTurning = (link) => () => {
@@ -110,11 +116,20 @@ export default defineComponent({
             paginTurning,
             imageUrl,
             imageSidebar,
-            goHome
+            goHome,
+            scrollSmoothToBlogs
         }
 
     }
 })
+
+
+const scrollSmoothToBlogs = () => {
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    })
+}
 
 
 
@@ -182,8 +197,43 @@ export default defineComponent({
         position: relative;
 
 
-        .runtu-pageBody {
-            
+        .runtu-pageHeader {
+            position: relative;
+
+            .downArrow {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 1000;
+                position: absolute;
+                bottom: 32px;
+                left: calc(50% - 0.75rem - 25px)
+                --animate-duration: 2s;
+                --animate-delay: 1s;
+
+                i {
+                    font-size: 1.5rem;
+                    color: rgba(255, 255, 255, 0.8);
+                }
+            }
+
+            .coverTitle {
+                font-family: Titillium Web,PingFang SC,Hiragino Sans GB,Microsoft JhengHei,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+                font-size: 5rem;
+                color: rgba(255, 255, 255, 0.9)
+                z-index: 1000;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%)
+            }
+        }
+
+
+        .runtu-pageBody { 
             position: relative;
             width: 100%;
             display: flex;
