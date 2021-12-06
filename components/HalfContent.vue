@@ -27,7 +27,7 @@ export default defineComponent({
                 delete order.friends
             }
             else if(temp === '/tag/') {
-                const meta = instance.$tag.list;
+                const meta = instance.$tag ? instance.$tag.list : [];
                 let array = []
                 for(let value of meta){
                     console.log(encodeURI(value.path))

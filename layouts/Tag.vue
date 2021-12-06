@@ -2,22 +2,22 @@
     <div class="Tag">
         <Sidebar />
         <div class="archive-title">
-            #{{this.$currentTag.key}}
+            #{{this.$currentTag ? this.$currentTag.key : ''}}
         </div>
         <div class="time-line">
-            <div class="text-node" v-for="item in this.$pagination.pages" :key="item.key">
+            <div class="text-node" v-for="item in (this.$pagination ? this.$pagination.pages : [])" :key="item.key">
                 <div class="archive-metaInfo">
                     <span class="time" @click="turnPage(item.path)">
-                        {{YMDFormat(item.frontmatter.date, '/')}}
+                        {{YMDFormat(item.frontmatter ? item.frontmatter.date : '', '/')}}
                     </span>
                     <span class="title" @click="turnPage(item.path)">
-                        {{item.frontmatter.title}}
+                        {{item.frontmatter ? item.frontmatter.title : ''}}
                     </span>
                 </div>
                 <div class="archive-tag">
                     <i class="fas fa-tag" />
                     <span>
-                        {{item.frontmatter.tags}}
+                        {{item.frontmatter ? item.frontmatter.tags : ''}}
                     </span>
                 </div>
             </div>
@@ -36,7 +36,6 @@ export default defineComponent({
     components: { Sidebar, Footer },
     setup() {
         const instance = getCurrentInstance().proxy;
-        console.log(instance)
 
         const turnPage = (href) => {
             instance.$router.push({path: href})

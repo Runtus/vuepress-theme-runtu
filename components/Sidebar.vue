@@ -1,5 +1,5 @@
 <template>
-    <aside :class="`sidebar  ${status_open ? 'open' : 'close'}`" :style="{height: imageHeight + 'px'}">
+    <aside :class="`sidebar  ${status_open}`" :style="{height: imageHeight + 'px'}">
         <div class="iconTitle">
 
         </div>
@@ -22,7 +22,7 @@ export default defineComponent({
     components: { NavLinks },
     setup() {
         const imageHeight = ref()
-        const status_open = ref(true)
+        const status_open = ref()
 
         onMounted(() => {
             imageHeight.value = window.innerHeight
@@ -30,10 +30,25 @@ export default defineComponent({
                 console.log(meta.height)
                 imageHeight.value = meta.height
             }, 300)
+
+            // sidebar cache
+            status_open.value = localStorage.getItem('sidebar') || 'open'
+            
+
         })
 
         const turnStatus = () => {
-            status_open.value = !status_open.value
+            const cache = localStorage.getItem('sidebar')
+            if(cache === 'open') {
+                status_open.value = 'close'
+                localStorage.setItem('sidebar', 'close')
+            } else if (cache === 'close') {
+                status_open.value = 'open'
+                localStorage.setItem('sidebar', 'open')
+            } else {
+                status_open.value = 'close'
+                localStorage.setItem('sidebar', 'close')
+            }
         }
 
         return {
