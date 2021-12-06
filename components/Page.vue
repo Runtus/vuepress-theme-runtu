@@ -310,7 +310,7 @@ const scrollSmoothToBlogs = () => {
         .runtu-blogs {
             margin-top: 60px;
 
-            #runtu-background {
+            .runtu-pageHeader {
                 display: none;
             }
 
