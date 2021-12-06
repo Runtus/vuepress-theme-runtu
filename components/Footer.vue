@@ -17,7 +17,8 @@ export default defineComponent({
     setup() {
         const footerStyleRef = ref();
         onMounted(() => {
-            if(document.getElementById('app').clientHeight < window.innerHeight) {
+            // 100位footer高度
+            if(document.getElementById('app').clientHeight  + 100 < window.innerHeight) {
                 footerStyleRef.value = {
                     position: 'fixed'
                 }

@@ -62,13 +62,15 @@
 
 <script>
 import { computed, defineComponent, getCurrentInstance, onMounted, onUpdated, ref} from 'vue-demi'
-import Background from '@theme/components/background.vue'
-import Blog from '@theme/components/BlogContainer.vue'
+import Background from '@theme/components/background'
+import Blog from '@theme/components/BlogContainer'
 import Header from '@theme/components/Header'
 import SideImage from '@theme/components/SidebarImage'
 import PageButton from '@theme/components/PageButton'
 import BlogContent from '@theme/components/BlogContent'
 import SelfIntro from '@theme/components/SelfIntro'
+import { onWindowSizeChange } from '@theme/helpers/vueUtils'
+
 import '@theme/styles/content.styl'
 
 
@@ -76,7 +78,7 @@ export default defineComponent({
     components: {Background, Blog, Header, SideImage, PageButton, BlogContent, SelfIntro},
     setup(props, ctx) {
         const instance = getCurrentInstance().proxy
-        console.log(instance)
+        const windowHeight = ref(0)
 
         // 为了让子组件调用函数时能够获取link的值，需要返回一个函数，类似柯里化
         const paginTurning = (link) => () => {

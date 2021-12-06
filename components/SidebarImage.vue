@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebar" :style="{height: `${imageHeight}px`}">
+    <div id="sidebar" :style="{height: `${imageHeight + 2}px`}">
         <!-- TODO 由About配置获取 -->
         <img :style="{height: `${imageHeight * 1.5}px`}" data-depth="0.5" :src="imageUrl" alt="sidebar">
     </div>
